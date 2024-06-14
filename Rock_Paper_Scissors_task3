@@ -1,0 +1,66 @@
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+name = input("Enter your name:")
+print(f"\nWelcome {name} to play Rock-Paper-Scissors Game\n")
+print("Rule1:Rock beats Scissors.\n")
+print("Rule2:Scissors beat Paper.\n")
+print("Rule3:Paper beats Rock.\n")
+print("Rule4:If both players choose the same option, it is a tie.\n")
+print("***********************************************")
+import random
+
+playagain = "y"
+while playagain == 'y':
+
+    image = [rock, paper, scissors]
+
+    user_choise = int(
+        input(
+            "What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"
+        ))
+
+    if user_choise < 0 or user_choise >= 3:
+        print("You typed an invalid number, you lose!")
+    else:
+        print(image[user_choise])
+        computer_choise = random.randint(0, 2)
+        print("Computer chose:")
+        print(image[computer_choise])
+        if user_choise == 0 and computer_choise == 2:
+            print("You win")
+        elif user_choise == 2 and computer_choise == 0:
+            print("You lose")
+        elif user_choise < computer_choise:
+            print("You lose")
+        elif user_choise > computer_choise:
+            print("You win!")
+        elif user_choise == computer_choise:
+            print("It's draw")
+        playagain = input("Do yoy want to play again(y/n):\n").lower()
+        if playagain == "n":
+            print("Ok see you soon ")
